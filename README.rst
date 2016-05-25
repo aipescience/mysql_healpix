@@ -102,7 +102,7 @@ For a few more supported functions see the ``test.sql``.
 Credits & License
 -----------------
 
-Written by Gal Matijevic at the E-Science group of the `AIP <https://www.aip.de>`_
+Written by Gal Matijevic // E-Science group // `AIP <https://www.aip.de>`_
 
 Based on the `mysql_sphere <https://escience.aip.de/mysql-sphere>`_ package by
 Adrian M. Partl.

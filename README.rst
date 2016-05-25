@@ -51,8 +51,8 @@ To get a HEALPix value for a set of two coordinates:
 
 If the polar angle is out of bounds ([0, PI]), the function returns -1.
 
-As a more real-world example we might want to to compute the HEALPix indices
-using ``nside=128`` for the catalog inside the ``tycho2`` table:
+As a more real-world example we might want to compute the HEALPix indices
+using ``nside=128`` for the stars inside the ``tycho2`` catalog: 
 
 .. code-block:: mysql
 
@@ -70,21 +70,14 @@ and update it with computed HEALPix values.
     ALTER TABLE tycho2 ADD COLUMN healpix INT(11) AFTER ...;
     UPDATE tycho2 SET healpix=ang2pix(128, RADIANS(DE + 90), RADIANS(RA));
 
-Going the other way is more annoying because MySQL doesn't allow outputing
+Going the other direction is more annoying because MySQL doesn't allow returning 
 multiple values so multiple function calls are necessary. To get coordinates
 of a pixel:
 
 .. code-block:: mysql
     
     SELECT pix2ang(128, 3312, 0), pix2ang(128, 3312, 1);
-
-or
-
-.. code-block:: mysql
-    
     SELECT pix2ang(128, 3312, 0, 'nest'), pix2ang(128, 3312, 1, 'nest');
-
-for NESTED ordering.
 
 We can also get the ``i``-th neighbour of any pixel by issuing
 

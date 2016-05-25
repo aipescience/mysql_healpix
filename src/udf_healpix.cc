@@ -13,9 +13,9 @@ struct st_mysql_daemon vars_plugin_info = {MYSQL_DAEMON_INTERFACE_VERSION};
 mysql_declare_plugin(vars) {
 	MYSQL_DAEMON_PLUGIN,
 	&vars_plugin_info,
-	"Healpix",
+	"HEALPix",
 	"Gal Matijevic",
-	"Healpix for MySQL",
+	"HEALPix for MySQL",
 	PLUGIN_LICENSE_GPL,
 	NULL,
 	NULL,

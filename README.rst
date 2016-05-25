@@ -98,12 +98,9 @@ Written by Gal Matijevic at the E-Science group of the `AIP <https://aip.de>`_
 Based on the `mysql_sphere <https://escience.aip.de/mysql-sphere>`_ package by
 Adrian M. Partl.
 
-Original HEALPix library by
-
-     KrzysVztof M. Gorski, Eric Hivon, Martin Reinecke,
-     Benjamin D. Wandelt, Anthony J. Banday,
-     Matthias Bartelmann,
-     Reza Ansari & Kenneth M. Ganga
+Original HEALPix library by Krzysztof M. Gorski, Eric Hivon, Martin Reinecke,
+Benjamin D. Wandelt, Anthony J. Banday, Matthias Bartelmann,
+Reza Ansari & Kenneth M. Ganga
 
 C++ HEALPix port by Martin Reinecke, Max-Planck-Society
 

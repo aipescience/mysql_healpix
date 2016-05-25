@@ -86,7 +86,7 @@ or
 
 for NESTED ordering.
 
-We can also get the ``i``-th nighbour of any pixel by issuing
+We can also get the ``i``-th neighbour of any pixel by issuing
 
 .. code-block:: mysql
     

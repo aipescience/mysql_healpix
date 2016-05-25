@@ -14,6 +14,7 @@ Installation
 - Compile:
 
 .. code-block:: bash
+
     mkdir build
     cd build
     cmake ..
@@ -23,11 +24,13 @@ Installation
 - Log into mysql server as root and run:
 
 .. code-block:: bash
+
     source install_healpix.sql
 
 - If you feel like you don't like it for some reason, uninstall it with
 
 .. code-block:: bash
+
     source uninstall_healpix.sql
 
 

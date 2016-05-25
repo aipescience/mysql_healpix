@@ -2,7 +2,7 @@ HEALPix for MySQL
 =================
 
 MySQL wrapper of some of the functions provided by the HEALPix library. For
-a more detailed explenation of what these function do please see the
+a more detailed description of what these function do please see the
 documentation `here <http://healpix.sourceforge.net/documentation.php>`_.
 
 

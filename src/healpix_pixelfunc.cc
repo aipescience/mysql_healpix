@@ -168,8 +168,8 @@ my_bool pix2ang_init( UDF_INIT* initid, UDF_ARGS* args, char* message ) {
 
         long long angidx = *((long long*) args->args[2]);
 
-        if (angidx != 0 && angidx != 1) {
-            strcpy(message, "Third parameter must either be 0 (theta) or 1 (phi).");
+        if (angidx != 1 && angidx != 2) {
+            strcpy(message, "Third parameter must either be 1 (theta) or 2 (phi).");
             return 1;
         }
 
@@ -213,7 +213,7 @@ double pix2ang( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* error ) {
     else {
         pix2ang_ring(nside, ipix, &theta, &phi);
     }
-    if (angidx == 0) {
+    if (angidx == 1) {
         return theta;
     }
     else {
@@ -288,8 +288,8 @@ my_bool pix2vec_init( UDF_INIT* initid, UDF_ARGS* args, char* message ) {
 
         long long angidx = *((long long*) args->args[2]);
 
-        if (angidx != 0 && angidx != 1 && angidx != 2) {
-            strcpy(message, "Third parameter must either be 0 (x) or 1 (y) or 2 (z).");
+        if (angidx != 1 && angidx != 2 && angidx != 3) {
+            strcpy(message, "Third parameter must either be 1 (x) or 2 (y) or 3 (z).");
             return 1;
         }
 
@@ -332,7 +332,7 @@ double pix2vec( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* error ) {
     else {
         pix2vec_ring(nside, ipix, vec);
     }
-    return vec[angidx];
+    return vec[angidx - 1];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -349,8 +349,8 @@ my_bool neighbours_init( UDF_INIT* initid, UDF_ARGS* args, char* message ) {
 
         long long nidx = *((long long*) args->args[2]);
 
-        if (nidx < 0 || nidx > 7) {
-            strcpy(message, "Third parameter must be between 0 and 7.");
+        if (nidx < 1 || nidx > 8) {
+            strcpy(message, "Third parameter must be between 1 and 8.");
             return 1;
         }
 
@@ -393,7 +393,7 @@ long long neighbours( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* err
     else {
         neighbours_ring(nside, ipix, result);
     }
-    return (long long) result[nidx];
+    return (long long) result[nidx - 1];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -78,10 +78,10 @@ of a pixel:
 
 .. code-block:: mysql
     
-    SELECT pix2ang(128, 3312, 0), pix2ang(128, 3312, 1);
-    SELECT pix2ang(128, 3312, 0, 'nest'), pix2ang(128, 3312, 1, 'nest');
+    SELECT pix2ang(128, 3312, 1), pix2ang(128, 3312, 2);
+    SELECT pix2ang(128, 3312, 1, 'nest'), pix2ang(128, 3312, 2, 'nest');
 
-We can also get the ``i``-th neighbour of any pixel by issuing
+We can also get the ``i``-th neighbour ([1, 8]) of any pixel by issuing
 
 .. code-block:: mysql
     
@@ -99,7 +99,7 @@ Credits & License
 
 Written by Gal Matijevic // E-Science group // `AIP <https://www.aip.de>`_
 
-Based on the `mysql_sphere <https://escience.aip.de/mysql-sphere>`_ package by
+Based on the `mysql_sphere <https://escience.aip.de/mysql-sphere>`_ plugin by
 Adrian M. Partl.
 
 Original HEALPix library by Krzysztof M. Gorski, Eric Hivon, Martin Reinecke,

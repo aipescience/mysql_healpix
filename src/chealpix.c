@@ -544,19 +544,19 @@ void pix2vec_nest(long nside, long ipix, double *vec)
   vec[1]=stheta*sin(phi);
   vec[2]=z;
   }
-void nest2ring(long nside, long ipnest, long *ipring)
+long nest2ring_(long nside, long ipnest)
   {
   int ix, iy, face_num;
-  if ((nside&(nside-1))!=0) { *ipring=-1; return; }
+  if ((nside&(nside-1))!=0) { return -1; }
   nest2xyf (nside, ipnest, &ix, &iy, &face_num);
-  *ipring = xyf2ring (nside, ix, iy, face_num);
+  return xyf2ring (nside, ix, iy, face_num);
   }
-void ring2nest(long nside, long ipring, long *ipnest)
+long ring2nest_(long nside, long ipring)
   {
   int ix, iy, face_num;
-  if ((nside&(nside-1))!=0) { *ipnest=-1; return; }
+  if ((nside&(nside-1))!=0) { return -1; }
   ring2xyf (nside, ipring, &ix, &iy, &face_num);
-  *ipnest = xyf2nest (nside, ix, iy, face_num);
+  return xyf2nest (nside, ix, iy, face_num);
   }
 
 

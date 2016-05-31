@@ -70,10 +70,10 @@ void pix2ang_ring(long nside, long ipix, double *theta, double *phi);
 
 /*! Computes the RING pixel index of pixel \a ipnest at resolution \a nside
     and returns it in \a *ipring. On error, \a *ipring is set to -1. */
-void nest2ring(long nside, long ipnest, long *ipring);
+long nest2ring_(long nside, long ipnest);
 /*! Computes the NEST pixel index of pixel \a ipring at resolution \a nside
     and returns it in \a *ipring. On error, \a *ipnest is set to -1. */
-void ring2nest(long nside, long ipring, long *ipnest);
+long ring2nest_(long nside, long ipring);
 
 /*! Returns \a 12*nside*nside. */
 long nside2npix_(long nside);

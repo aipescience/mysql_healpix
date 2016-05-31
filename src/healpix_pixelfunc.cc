@@ -27,6 +27,8 @@ extern "C" {
     MYSQL_UDF_INT_FUNC( ang2pix );
     MYSQL_UDF_INT_FUNC( vec2pix );
     MYSQL_UDF_INT_FUNC( neighbours );
+    MYSQL_UDF_INT_FUNC( nest2ring );
+    MYSQL_UDF_INT_FUNC( ring2nest );
     MYSQL_UDF_INT_FUNC( nside2npix );
     MYSQL_UDF_INT_FUNC( npix2nside );
 }
@@ -394,6 +396,42 @@ long long neighbours( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* err
         neighbours_ring(nside, ipix, result);
     }
     return (long long) result[nidx - 1];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+my_bool nest2ring_init( UDF_INIT* initid, UDF_ARGS* args, char* message ) {
+    if (args->arg_count == 2) {
+        MYSQL_UDF_CHK_PARAM_INT(0, "nest2ring() requires the first parameter to be an int.");
+        MYSQL_UDF_CHK_PARAM_INT(1, "nest2ring() requires the second parameter to be an int.");
+    }
+    else {
+		strcpy(message, "Wrong number of arguments: nest2ring() requires two parameters.");
+		return 1;
+	}
+
+    return 0;
+}
+
+long long nest2ring( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* error ) {
+    return (long long) nest2ring_(*((long long*) args->args[0]), *((long long*) args->args[1]));
+}
+
+my_bool ring2nest_init( UDF_INIT* initid, UDF_ARGS* args, char* message ) {
+    if (args->arg_count == 2) {
+        MYSQL_UDF_CHK_PARAM_INT(0, "ring2nest() requires the first parameter to be an int.");
+        MYSQL_UDF_CHK_PARAM_INT(1, "ring2nest() requires the second parameter to be an int.");
+    }
+    else {
+		strcpy(message, "Wrong number of arguments: ring2nest() requires two parameters.");
+		return 1;
+	}
+
+    return 0;
+}
+
+long long ring2nest( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* error ) {
+    return (long long) ring2nest_(*((long long*) args->args[0]), *((long long*) args->args[1]));
 }
 
 ///////////////////////////////////////////////////////////////////////////////

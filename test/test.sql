@@ -33,5 +33,8 @@ SELECT neighbours(64, 555, 6, 'nest');
 SELECT neighbours(64, 555, 7, 'nest');
 SELECT neighbours(64, 555, 8, 'nest');
 
+SELECT nest2ring(32, 1234);
+SELECT ring2nest(32, 1234);
+
 SELECT nside2npix(1024);
 SELECT npix2nside(12582912);
